@@ -6,9 +6,9 @@ import com.portfolio.Database.model.Tecnologia;
 import com.portfolio.Database.service.IPersonaService;
 import com.portfolio.Database.service.IProyectoService;
 import com.portfolio.Database.service.ITecnologiaService;
-import com.portfolio.Database.service.demoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/db")
 public class Controller {
@@ -30,11 +31,6 @@ public class Controller {
     @Autowired
     public ITecnologiaService tecServ;
 
-    // @GetMapping("/api/db/hola")
-    //@ResponseBody;
-    //public String decirHola() {
-    //  return demoService1.decirHola();
-    // }
     //Persona
     @PostMapping("/new/persona")
     public void agregarPersona(@RequestBody Persona pers) {
